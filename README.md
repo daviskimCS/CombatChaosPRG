@@ -5,7 +5,7 @@
 Authors: [Davis Kim](https://github.com/daviskimCS), [Lauren Tomasi](https://github.com/ltoma001), [Jahnavi Naik](https://github.com/jahnavi-naik), [Arun Chacko](https://github.com/arunchacko1)
 
 ## Project Description
-In our proposed text-based strategic combat game, users will choose among different character classes such as Rogue, Tank, or Fighter. Each of these character classes are associated with different sets of stats (health, speed, strength). After choosing their class, the player is presented with some beginner level items that they choose from. At each turn of a given game, a narrative is presented and the user is thrown into battle and can select between different options (attack, defend, dodge). At the end of each battle, some more items will be presented for the user to pick from. These items provide the player with permanent statistical buffs that will help them take down future enemies.
+In our proposed text-based strategic combat game, users will choose among different the character classes: rogue, tank, or fighter. Each of these character classes are associated with different sets of statistics: health, speed, strength. After choosing their class, the player is presented with some beginner level items that they choose from. At each turn of a given game, a narrative is presented and the user is thrown into battle and can select between the different options: attack, defend, and dodge. At the end of each battle, additional items will be presented for the user to choose from. These items provide the player with permanent statistical buffs that will help them take down future enemies.
 
 Why is it important or interesting to you?
 - This project is important to us because we are excited to learn about completing a project as a team using topics we are currently learning and have learned about. This project is interesting because, like many others, some of us group members enjoy playing video games during our pass time.
@@ -46,8 +46,6 @@ For every stage, there is a possibility of the player encountering items. To han
 Single Responsibility Principle: Added a vector of type Item to organize the items within the Inventory class. Added method isEmpty() to check if a player doesn’t have any items within the Inventory class. This was almost implemented into what was previously removeItem() to useItem() to account for a player having more than one of the same type of item within the Inventory class.
 The Combat class has a single responsibility of handling combat between two characters. It does not handle any other responsibilities such as managing game state or interacting with the user. This makes the class easier to maintain and test. Each of the private functions in the combat class has a single responsibility: compareSpeed() compares the speed of two characters, calculateDmg() calculates the damage dealt by a character, and setParticipants() sets the participants of a combat encounter. These functions don't try to do anything more than what their name suggests.
 
-
-
 Dependency Inversion Principle: Changed parameter for useItem() from type Item to string to account for user input within the Player class. This helps prevent the method from relying too heavily on properly interacting with the Inventory and Item classes, which are lower in level. The handling for matching happens down the stream by functions that are already built to handle a parameter of type string, allowing for looser coupling between the classes.
 
 Open/Closed Principle: Added a vector of type Item to represent what items a player could potentially pick up from a stage within the Stage class. Allows a developer to update what items are available on a certain stage, extending upon what is already written. The developer is able to do so without modifying the class directly, allowing for the possibility of another developer to update what items are available on a different stage while maintaining the code’s stability.
@@ -55,18 +53,22 @@ Open/Closed Principle: Added a vector of type Item to represent what items a pla
 Interface Segregation Principle 
 The Combat class has a simple and clear interface that only includes the necessary public methods for handling combat. We didn’t include any unnecessary methods or properties that were not directly related to combat. By using the ISP, we can make the class more focused and easier to use in game. 
 
- 
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
+ ## V1.0.0 Class Diagram
+ ![image](https://user-images.githubusercontent.com/93836665/225830734-ed5b155f-ea3a-4a10-9945-0d20df873a8d.png)
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+![image](https://user-images.githubusercontent.com/93836665/225844541-09eb1e95-1c9e-460d-b687-e06611731e22.png)
+![image](https://user-images.githubusercontent.com/93836665/225844549-262f7031-6b05-45d1-8dcf-898cadc68a59.png)
+
  ## Installation/Usage
-To install our project, you would need to download the project as a zip file or use git. To download as a ZIP file, select "Download ZIP" and save the file to their computer. Once the file is saved, extract the contents of the ZIP file to a folder of your choice. To download using git, copy the repository's URL from the dropdown menu and use git commands to clone the repository to their computer. For example, you use the command "git clone https://github.com/cs100/final-project-cs100-pg.git" to download the repository. Once you have done that, you can run "cmake ." and "make" in your terminal to create the executable needed. Then run "./EXECUTABLE" to start playing!
+To install our project, you would need to download the project as a zip file or use git. To download as a ZIP file, select "Download ZIP" and save the file to their computer. Once the file is saved, extract the contents of the ZIP file to a folder of your choice. To download using git, copy the repository's URL from the dropdown menu and use git commands to clone the repository to their computer. For example, you use the command "git clone https://github.com/cs100/final-project-cs100-pg.git" to download the repository. Once you have done that, you can run "cmake ." and "make" in your terminal to create the executable needed. Then run "./BuildV1.0.0" to start playing!
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ Our project was tested and validated using GoogleTest and Valgrind. These two tools used in combination allowed for us to get our desired output, data management, and execution. Below are screenshots of are test suites and Valgrind report after running our Build V1.0.0 executbale.
  
+![image](https://user-images.githubusercontent.com/93836665/225844243-d4272c13-e2bb-4b28-bdb1-a0ff7c0076c3.png)
+![image](https://user-images.githubusercontent.com/93836665/225844286-3eecae37-e721-41db-9858-74ece9c6ccc7.png)
+![image](https://user-images.githubusercontent.com/93836665/225844302-5c5f4af6-596c-4830-ba3b-1373d63f8549.png)
+![image](https://user-images.githubusercontent.com/93836665/225844319-d979e230-6f01-4615-a919-bde5050b9b23.png)
+![image](https://user-images.githubusercontent.com/93836665/225844340-5d83f354-0b1a-48ed-9228-dc00a5bf244b.png)
+![image](https://user-images.githubusercontent.com/93836665/225844371-295ccacb-c497-4503-baa0-2010f224e345.png)
+![image](https://user-images.githubusercontent.com/93836665/225844390-39bbb5a2-aa35-490a-968f-1f7f8f9d263f.png)
